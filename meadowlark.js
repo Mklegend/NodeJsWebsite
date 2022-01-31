@@ -1,5 +1,7 @@
 // Getting Express Module
 const express = require('express')
+// Getting a customized Module
+const fortune = require('./lib/fortune')
 // Creating Express App
 const app = express()
 // Setting Port number for Server
@@ -37,7 +39,7 @@ app.get('/', (req, res) => {
 // route for About Page
 app.get('/about', (req, res) => {
   const randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)]
-  res.render('about',{fortune : randomFortune})
+  res.render('about',{fortune : fortune.getFortune()})
 })
 
 // custom 404 page
